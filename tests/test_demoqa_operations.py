@@ -23,9 +23,7 @@ def test_complete_demoqa():
     browser.element('.subjects-auto-complete__input #subjectsInput').type('co').press_enter()
     browser.element('[for="hobbies-checkbox-1"]').click()
     browser.element('[for="hobbies-checkbox-3"]').click()
-    time.sleep(3)
     browser.element('#uploadPicture').send_keys(os.path.abspath('foto.png'))
-    time.sleep(3)
     browser.element('#currentAddress').type('Нижегородская обл, г Выкса')
     browser.element('#react-select-3-input').type('Haryana').press_enter()
     browser.element('#react-select-4-input').type('Panipat').press_enter()
@@ -34,7 +32,7 @@ def test_complete_demoqa():
     #Проверки
     browser.element('#example-modal-sizes-title-lg').should(have.text('Thanks for submitting the form'))
     browser.element('.table').all('td').even.should(have.exact_texts(
-             'Petr Andreev',
+                    'Petr Andreev',
                     'for_example@gmail.com',
                     'Male',
                     '1234567899',
