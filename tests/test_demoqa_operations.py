@@ -1,9 +1,11 @@
 import os
+import time
+
 from selene import browser
 from selene.support.conditions import have
 
 
-image_files = 'foto.png'
+
 
 def test_complete_demoqa():
     #Тесты
@@ -21,7 +23,9 @@ def test_complete_demoqa():
     browser.element('.subjects-auto-complete__input #subjectsInput').type('co').press_enter()
     browser.element('[for="hobbies-checkbox-1"]').click()
     browser.element('[for="hobbies-checkbox-3"]').click()
-    browser.element('#uploadPicture').send_keys(image_files)
+    time.sleep(3)
+    browser.element('#uploadPicture').send_keys(os.path.abspath('foto.png'))
+    time.sleep(3)
     browser.element('#currentAddress').type('Нижегородская обл, г Выкса')
     browser.element('#react-select-3-input').type('Haryana').press_enter()
     browser.element('#react-select-4-input').type('Panipat').press_enter()
