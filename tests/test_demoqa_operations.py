@@ -1,11 +1,6 @@
 import os
-import time
-
 from selene import browser
 from selene.support.conditions import have
-
-
-
 
 def test_complete_demoqa():
     #Тесты
