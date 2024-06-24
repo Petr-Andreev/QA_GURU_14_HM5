@@ -10,7 +10,7 @@ def browser_management():
     driver_options = webdriver.ChromeOptions()
     driver_options.page_load_strategy = 'eager'
     browser.config.driver_options = driver_options
-    driver_options.add_argument("--headless")
+    #driver_options.add_argument("--headless")
 
     yield
     browser.quit()
