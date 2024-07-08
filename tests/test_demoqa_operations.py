@@ -1,5 +1,11 @@
-import os
 from selene import browser, have
+
+from demoqa_tests import resource
+
+
+#def resource_path(file_name):
+#    str(Path(tests.__file__).paretn.joinpath(f"resources/{file_name}").absolute())
+
 
 def test_complete_demoqa():
     browser.open("/automation-practice-form")
@@ -16,7 +22,8 @@ def test_complete_demoqa():
     browser.element('.subjects-auto-complete__input #subjectsInput').type('co').press_enter()
     browser.element('[for="hobbies-checkbox-1"]').click()
     browser.element('[for="hobbies-checkbox-3"]').click()
-    browser.element('#uploadPicture').send_keys(os.path.abspath('foto.png'))
+    browser.element('#uploadPicture').set_value(resource.path('foto.png'))
+    #browser.element('#uploadPicture').send_keys(os.path.abspath('foto.png'))
     browser.element('#currentAddress').type('Нижегородская обл, г Выкса')
     browser.element('#react-select-3-input').type('Haryana').press_enter()
     browser.element('#react-select-4-input').type('Panipat').press_enter()
