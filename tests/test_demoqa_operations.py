@@ -27,9 +27,11 @@ def test_complete_demoqa():
     # browser.element('#currentAddress').type('Нижегородская обл, г Выкса')
     registration_page.fill_state('Haryana')
     registration_page.fill_city('Panipat')
+    # Доделать
     # browser.element('#submit').press_enter()
 
     #THEN
+    # Доделать
     # browser.element('#example-modal-sizes-title-lg').should(have.text('Thanks for submitting the form'))
     registration_page.registered_user_data.should(
         have.exact_texts(
