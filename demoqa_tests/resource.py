@@ -1,6 +1,7 @@
 from pathlib import Path
 import tests
 
+file_name = 'foto.png'
 
 def path(file_name):
     return str(
