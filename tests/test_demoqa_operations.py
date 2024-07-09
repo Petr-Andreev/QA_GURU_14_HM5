@@ -1,39 +1,35 @@
-from selene import browser, have
-from demoqa_tests import resource
-from demoqa_tests.pages.registration_page import RegistrationFormPage
+from selene import have
+from demoqa_tests.pages.registration_page import PracticeFormPage
 
 
 def test_complete_demoqa():
-    registration_page = RegistrationFormPage()
-    # open registration form
-    registration_page.open()
+    registration_form = PracticeFormPage()
+    registration_form.open()
 
     # WHEN
-    registration_page.fill_first_name('Petr')
-
-    #Доделать
-    # browser.element('#lastName').type('Andreev')
-    # browser.element('#userNumber').type('12345678998')
-    # browser.element('#userEmail').type('for_example@gmail.com')
-    # browser.element('[for="gender-radio-1"]').click()
-
-    registration_page.fill_birthday('1999', 'May', '28')
-
-    #Доделать
-    # browser.element('#subjectsInput').type('Computer Science').press_enter()
-    # browser.all('.custom-checkbox').element_by(have.exact_text('Sports')).click()
-    # browser.all('.custom-checkbox').element_by(have.exact_text('Music')).click()
-    # browser.element('#uploadPicture').set_value(resource.path('foto.png'))
-    # browser.element('#currentAddress').type('Нижегородская обл, г Выкса')
-    registration_page.fill_state('Haryana')
-    registration_page.fill_city('Panipat')
-    # Доделать
-    # browser.element('#submit').press_enter()
+    registration_form.fill_first_name('Petr')
+    registration_form.fill_last_name('Andreev')
+    registration_form.fill_user_number('12345678998')
+    registration_form.fill_user_email('for_example@gmail.com')
+    registration_form.fill_gender()
+    registration_form.fill_birthday('1999', 'May', '28')
+    registration_form.fill_subjects('Computer Science')
+    registration_form.fill_checkbox('Sports')
+    registration_form.fill_checkbox('Music')
+    registration_form.fill_foto()
+    registration_form.fill_address('Нижегородская обл, г Выкса')
+    registration_form.fill_state('Haryana')
+    registration_form.fill_city('Panipat')
+    registration_form.submit()
 
     #THEN
-    # Доделать
-    # browser.element('#example-modal-sizes-title-lg').should(have.text('Thanks for submitting the form'))
-    registration_page.registered_user_data.should(
+    registration_form.successful_authentication.should(
+        have.text(
+            'Thanks for submitting the form'
+        )
+    )
+
+    registration_form.registered_user_data.should(
         have.exact_texts(
         'Petr Andreev',
         'for_example@gmail.com',
