@@ -1,12 +1,12 @@
 from selene import browser, have
-from demoqa_tests import resource
+import resource
 
 
 class PracticeFormPage:
 
-    def __init__(self):
-        self.successful_authentication = browser.element('#example-modal-sizes-title-lg')
-        self.registered_user_data = browser.element('.table').all('td').even
+    # def __init__(self):
+    #    self.successful_authentication = browser.element('#example-modal-sizes-title-lg')
+    #    self.registered_user_data = browser.element('.table').all('td').even
 
     def open(self):
         browser.open("/automation-practice-form")
@@ -39,18 +39,42 @@ class PracticeFormPage:
 
     def fill_checkbox(self, value):
         browser.all('.custom-checkbox').element_by(have.exact_text(value)).click()
-        
-    def fill_foto(self):
-        browser.element('#uploadPicture').set_value(resource.path('foto.png'))
-        
+
+    def fill_foto(self, file):
+        browser.element('#uploadPicture').set_value(resource.path(file))
+
     def fill_address(self, value):
         browser.element('#currentAddress').type(value)
 
-    def fill_state(self, name):
-        browser.element('#react-select-3-input').type(name).press_enter()
+    def fill_state(self, state):
+        browser.element('#react-select-3-input').type(state).press_enter()
 
-    def fill_city(self, name):
-        browser.element('#react-select-4-input').type(name).press_enter()
+    def fill_city(self, city):
+        browser.element('#react-select-4-input').type(city).press_enter()
 
     def submit(self):
         browser.element('#submit').press_enter()
+
+    def successful_authentication(self, text):
+        browser.element('#example-modal-sizes-title-lg').should(
+            have.text(
+                f'{text}'
+            )
+        )
+
+    def registered_user_data(self, fio, email,
+                             gender, phone, birthday, subjects,
+                             hobbies, photo, street,
+                             state_and_city):
+        browser.element('.table').all('td').even.should(have.exact_texts(
+            f'{fio}',
+            f'{email}',
+            f'{gender}',
+            f'{phone}',
+            f'{birthday}',
+            f'{subjects}',
+            f'{hobbies}',
+            f'{photo}',
+            f'{street}',
+            f'{state_and_city}'
+        ))

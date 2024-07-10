@@ -16,21 +16,16 @@ def test_complete_demoqa():
     registration_form.fill_subjects('Computer Science')
     registration_form.fill_checkbox('Sports')
     registration_form.fill_checkbox('Music')
-    registration_form.fill_foto()
+    registration_form.fill_foto('foto.png')
     registration_form.fill_address('Нижегородская обл, г Выкса')
     registration_form.fill_state('Haryana')
     registration_form.fill_city('Panipat')
     registration_form.submit()
 
-    #THEN
-    registration_form.successful_authentication.should(
-        have.text(
-            'Thanks for submitting the form'
-        )
-    )
+    # THEN
+    registration_form.successful_authentication('Thanks for submitting the form')
 
-    registration_form.registered_user_data.should(
-        have.exact_texts(
+    registration_form.registered_user_data(
         'Petr Andreev',
         'for_example@gmail.com',
         'Male',
@@ -42,5 +37,4 @@ def test_complete_demoqa():
         'Нижегородская обл,'
         ' г Выкса',
         'Haryana Panipat'
-        )
     )
