@@ -1,5 +1,5 @@
 from selene import browser, have, be
-from demoqa_tests import resource
+import resource
 from demoqa_tests.data.users import User
 
 

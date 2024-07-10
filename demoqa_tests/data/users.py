@@ -1,6 +1,6 @@
 import dataclasses
 
-from demoqa_tests import resource
+import resource
 
 
 @dataclasses.dataclass
@@ -25,4 +25,4 @@ class User:
 admin = User(first_name='Petr', last_name='Andreev', email='for_example@gmail.com',
              mobile='1234567899', gender='Male', year_of_birth='1999', month_of_birth='May', day_of_birth='28',
              subjects='Computer Science', hobbies='Sports', hobbies_two='Music',
-             address='Нижегородская обл, г Выкса', state='Haryana', city='Panipat', photo=resource.file_name)
+             address='Нижегородская обл, г Выкса', state='Haryana', city='Panipat', photo='foto.png')
