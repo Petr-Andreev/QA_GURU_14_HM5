@@ -1,4 +1,3 @@
-from selene import have
 from demoqa_tests.pages.registration_page import PracticeFormPage
 
 

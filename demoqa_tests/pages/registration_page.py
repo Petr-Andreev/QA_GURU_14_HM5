@@ -4,10 +4,6 @@ import resource
 
 class PracticeFormPage:
 
-    # def __init__(self):
-    #    self.successful_authentication = browser.element('#example-modal-sizes-title-lg')
-    #    self.registered_user_data = browser.element('.table').all('td').even
-
     def open(self):
         browser.open("/automation-practice-form")
 
