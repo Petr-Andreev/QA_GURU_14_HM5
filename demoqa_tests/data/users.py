@@ -1,7 +1,5 @@
 import dataclasses
 
-import resource
-
 
 @dataclasses.dataclass
 class User:
