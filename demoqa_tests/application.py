@@ -6,7 +6,6 @@ class Application:
     def __init__(self):
         self.text_box_form = TextBoxFrom()
         self.left_panel = PracticeFormPage()
-        self.student_reg_form = PracticeFormPage()
 
 
 app = Application()

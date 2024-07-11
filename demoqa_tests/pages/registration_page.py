@@ -6,18 +6,7 @@ from demoqa_tests.data.users import User
 class PracticeFormPage:
 
     def open(self):
-        browser.open("/automation-practice-form")
-
-    def open_text_box_form(self, text_box_from=None):
-        browser.open('/automation-practice-form')
-        browser.all('[id^=google_ads][id$=container__]').with_(
-            timeout=10).wait_until(have.size_greater_than_or_equal(3)
-                                   )
-        browser.all('[id^=google_ads][id$=container__]').perform(command.js.remove)
-        browser.driver.execute_script('document.querySelector(".body-height").style.transform = "scale(.90)"')
-        browser.all('.element-group').first.should(have.text('Elements')).click()
-        browser.all('.menu-list .text').element_by(have.exact_text('Text Box')).click()
-        return text_box_from
+        browser.open("automation-practice-form/")
 
     def fill_first_name(self, value):
         browser.element('#firstName').type(value)
@@ -64,6 +53,7 @@ class PracticeFormPage:
         browser.element('#submit').press_enter()
 
     def register(self, admin: User):
+        self.open()
         self.fill_first_name(admin.first_name)
         self.fill_last_name(admin.last_name)
         self.fill_user_number(admin.mobile)
@@ -93,3 +83,7 @@ class PracticeFormPage:
             f'{admin.address}',
             f'{admin.state} {admin.city}'
         ))
+
+
+    def open_text_box_form(self):
+        browser.open('text-box/')
