@@ -84,6 +84,5 @@ class PracticeFormPage:
             f'{admin.state} {admin.city}'
         ))
 
-
     def open_text_box_form(self):
         browser.open('text-box/')

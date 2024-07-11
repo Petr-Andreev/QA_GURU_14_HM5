@@ -10,7 +10,7 @@ def browser_management():
     browser.config.window_height = 1080
     driver_options = webdriver.ChromeOptions()
     driver_options.page_load_strategy = 'eager'
-    # driver_options.add_argument("--headless")
+    driver_options.add_argument("--headless")
     browser.config.driver_options = driver_options
 
     yield
